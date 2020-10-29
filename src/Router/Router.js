@@ -9,7 +9,7 @@ const CreateRoutes = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={Login} />
-      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/profile/:username/:password" component={Profile} />
       <Route component={PageNotFound} />
     </Switch>
   </Router>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Table , Container , Button , Row } from 'react-bootstrap';
+import { Table , Container , Button , Row , Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const getUserData = (setUserData, pageNumber) => {
@@ -17,7 +17,8 @@ const getUserData = (setUserData, pageNumber) => {
     });
 };
 
-function Profile() {
+function Profile(props) {
+  console.log(props);
   const [userData, setUserData] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -42,7 +43,17 @@ function Profile() {
           </a>
         </Row>
         <Row>
-          <h1>Profiles Page</h1>
+          <Col>
+            <h1>Profiles Page</h1>
+          </Col>
+          <Col>
+            <p>Welcome {props.match.params.username}!</p>
+          <Col>
+          </Col>
+            <p>Your Password is {props.match.params.password}</p>
+          </Col>
+        </Row>
+        <Row>
           <Table striped bordered hover responsive> 
             <thead>
               <tr>

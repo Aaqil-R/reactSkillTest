@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Container, Row, Col, Button, Form , ALer } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
@@ -30,7 +30,7 @@ function Login() {
         .then(res => res.json())
         .then(result => {
           if (result.token) {
-            history.push('/profile');
+            history.push(`/profile/${username}/${password}`);
           } else {
             setValidationError(result.error);
           }
@@ -50,6 +50,11 @@ function Login() {
   return (
     <Container>
       <Form>
+        <Row>
+          <Col sm>
+            <h1>Profile Manager</h1>
+          </Col>
+        </Row>
         <Row>
           <Col sm>
             <Form.Group>
